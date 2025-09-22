@@ -1,4 +1,6 @@
 import { supabase } from './supabaseClient'
+import toast from 'react-hot-toast';
+
 
 export const login = async (email, password) => {
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -7,9 +9,10 @@ export const login = async (email, password) => {
     });
 
     if (error) {
-        console.log("An error Login occurred : ", error.message)
+        toast.error(error.message   )
+        return
     } else {
-        console.log("user is successfully logged in")
+        toast.success("Successfully logged in")
     }
 }
 
@@ -17,16 +20,18 @@ export const signup = async (name, email, password) => {
     const { data, error } = await supabase.auth.signUp({
         email,
         password,
-        data: {
-            name
+        options: {
+            data: { name }
         }
+        
     })
 
     if (error) {
-        console.log("Error", error)
-    } else {
-        console.log("user is successfully signed up in")
+        toast.error(error.message)
+        return
     }
+
+    toast.success("Successfully signed up")
 }
 
 export const passwordReset = async (email) => {
@@ -34,8 +39,9 @@ export const passwordReset = async (email) => {
         redirectTo: 'http://localhost:5173/recover-password' 
     });
     if(error) {
-        console.log("Error", error);
+        toast.error(error.message);
+        return
     } else {
-        console.log("all good");
+        toast("Check your email")
     }
 }

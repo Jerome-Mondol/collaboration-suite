@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from 'react-hot-toast';
 import { supabase } from "../../Functions/Auth/supabaseClient";
 
 const PassRecovery = () => {
@@ -12,8 +13,8 @@ const PassRecovery = () => {
     setIsLoading(true);
 
     const { data, error } = await supabase.auth.updateUser({ password: newPassword });
-    if (data) alert("Password updated successfully!");
-    if (error) alert("Error updating password!");
+    if (data) toast.success("Password updated successfully!");
+    if (error) toast.error(error.message);
 
     setIsLoading(false);
   };

@@ -21,7 +21,6 @@ const ForgotPassword = () => {
         const handleSubmit = async(e) => {
             e.preventDefault();
             passwordReset(email)
-            alert("Check ur email")
         }
 
   return (

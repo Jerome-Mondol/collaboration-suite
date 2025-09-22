@@ -34,7 +34,7 @@ const Login = () => {
         <form onSubmit={handleSubmit} className='bg-gray-300 w-[30%] h-auto p-10 flex flex-col gap-5' >
             <div>
                 <h1 className='text-2xl font-bold text-center'>Login</h1>
-                <p className='text-lg text-center mt-2' >Don't have an account? Sign Up</p>
+                <p className='text-lg text-center mt-2' >Don't have an account? <Link to={'/signup'} className='text-blue-700' >Sign Up</Link></p>
             </div>
 
             <input onChange={handleChange} className='bg-white p-5 border-none outline-none' type="email" name="email" id="email" placeholder='Enter Email'/>
@@ -44,7 +44,8 @@ const Login = () => {
 
             {
                 isLoading ? 
-                <div>Loading</div>
+                <button className='bg-black text-white p-3 font-semibold text-xl' type='submit'>Login...</button>
+
                 :
                 <button className='bg-black text-white p-3 font-semibold text-xl' type='submit'>Login</button>
             }

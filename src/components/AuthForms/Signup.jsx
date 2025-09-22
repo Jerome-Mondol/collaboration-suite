@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { signup } from '../../Functions/Auth/Auth'
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
 
@@ -36,8 +37,8 @@ const Signup = () => {
         <h1 className='text-white text-semibold text-3xl' >Welcome to Remote Work Collaboration Suite</h1>
         <form onSubmit={handleSubmit} className='bg-gray-300 w-[30%] h-auto p-10 flex flex-col gap-5' >
             <div>
-                <h1 className='text-2xl font-bold text-center'>SignUp</h1>
-                <p className='text-lg text-center mt-2' >Already Have an account? Login</p>
+                <h1 className='text-2xl font-bold text-center'>Signup</h1>
+                <p className='text-lg text-center mt-2' >Already Have an account? <Link to={'/login'} className='text-blue-700'>Login</Link></p>
             </div>
 
 
@@ -48,7 +49,8 @@ const Signup = () => {
 
             {
                 isLoading ?
-                <div>is loading</div>
+                <button className='bg-black text-white p-3 font-semibold text-xl' type='submit'>Sign up...</button>
+
                 :
                 <button className='bg-black text-white p-3 font-semibold text-xl' type='submit'>Sign up</button>
             }
