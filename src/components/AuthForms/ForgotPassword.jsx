@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { login, passwordReset } from '../../Functions/Auth/Auth'
-import { Link } from 'react-router-dom'
 
 
-const Login = () => {
+const ForgotPassword = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [formData, setFormData] = useState({
         email: "",
-        password: ""
     })
     const {email, password} = formData;
     
@@ -22,31 +20,27 @@ const Login = () => {
     
         const handleSubmit = async(e) => {
             e.preventDefault();
-            setIsLoading(true);
-            await login(email, password)
-            setIsLoading(false)
+            passwordReset(email)
+            alert("Check ur email")
         }
 
   return (
     <>  
     <div className='w-screen h-screen flex justify-evenly items-center flex-col' >
-        <h1 className='text-white text-semibold text-3xl' >Welcome to Remote Work Collaboration Suite</h1>
+        <h1 className='text-white text-semibold text-3xl' >Why did you forgot your password 😠</h1>
         <form onSubmit={handleSubmit} className='bg-gray-300 w-[30%] h-auto p-10 flex flex-col gap-5' >
             <div>
-                <h1 className='text-2xl font-bold text-center'>Login</h1>
-                <p className='text-lg text-center mt-2' >Don't have an account? Sign Up</p>
+                <h1 className='text-2xl font-bold text-center'>Password Recovery</h1>
             </div>
 
             <input onChange={handleChange} className='bg-white p-5 border-none outline-none' type="email" name="email" id="email" placeholder='Enter Email'/>
-            <input onChange={handleChange} className='bg-white p-5 border-none outline-none' type="password" name="password" id="password" placeholder='Enter password'/>
 
-            <button className='text-left text-blue-700' type='button' ><Link to={'/recover'}>Forgot password?</Link></button>
 
             {
                 isLoading ? 
                 <div>Loading</div>
                 :
-                <button className='bg-black text-white p-3 font-semibold text-xl' type='submit'>Login</button>
+                <button className='bg-black text-white p-3 font-semibold' type='submit'>Get password Reset link</button>
             }
         </form>
     </div>
@@ -54,4 +48,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default ForgotPassword
