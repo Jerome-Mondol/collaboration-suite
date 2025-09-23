@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { signup } from '../../Functions/Auth/Auth'
+import { signup } from '../../Utils/Auth/Auth'
 import { Link } from 'react-router-dom';
 
 const Signup = () => {

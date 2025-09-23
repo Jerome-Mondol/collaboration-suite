@@ -9,7 +9,7 @@ export const login = async (email, password) => {
     });
 
     if (error) {
-        toast.error(error.message   )
+        toast.error(error.message)
         return
     } else {
         toast.success("Successfully logged in")

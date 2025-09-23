@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import toast from 'react-hot-toast';
-import { supabase } from "../../Functions/Auth/supabaseClient";
+import { supabase } from "../../Utils/Auth/supabaseClient";
 
 const PassRecovery = () => {
   const [newPassword, setNewPassword] = useState("");
