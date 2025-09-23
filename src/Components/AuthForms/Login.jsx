@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { login } from '../../Utils/Auth/Auth'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Login = () => {
@@ -10,6 +10,7 @@ const Login = () => {
         password: ""
     })
     const {email, password} = formData;
+    const navigate = useNavigate();
     
         const handleChange = (event) => {
             setFormData((prevFormData) => {
@@ -23,7 +24,11 @@ const Login = () => {
         const handleSubmit = async(e) => {
             e.preventDefault();
             setIsLoading(true);
-            await login(email, password)
+            const success = await login(email, password)
+            if(success)  {
+                setIsLoading(false)
+                navigate('/dashboard')
+            } 
             setIsLoading(false)
         }
 

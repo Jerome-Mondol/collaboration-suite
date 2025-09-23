@@ -1,6 +1,5 @@
-import { supabase } from './supabaseClient'
+import { supabase } from '../supabaseClient'
 import toast from 'react-hot-toast';
-
 
 export const login = async (email, password) => {
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -13,6 +12,7 @@ export const login = async (email, password) => {
         return
     } else {
         toast.success("Successfully logged in")
+        return true;
     }
 }
 
