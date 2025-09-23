@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { login, passwordReset } from '../../Utils/Auth/Auth'
+import { login } from '../../Utils/Auth/Auth'
 import { Link } from 'react-router-dom'
 
 

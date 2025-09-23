@@ -41,7 +41,7 @@ const Signup = () => {
                 <p className='text-lg text-center mt-2' >Already Have an account? <Link to={'/login'} className='text-blue-700'>Login</Link></p>
             </div>
 
-
+            <input type="file" className='dropzone'/>
             <input onChange={handleChange} className='bg-white p-5 border-none outline-none' type="text" name="name" id="name" placeholder='Enter Name'/>
             <input onChange={handleChange} className='bg-white p-5 border-none outline-none' type="email" name="email" id="email" placeholder='Enter Email'/>
             <input onChange={handleChange} className='bg-white p-5 border-none outline-none' type="password" name="password" id="password" placeholder='Enter password'/>
