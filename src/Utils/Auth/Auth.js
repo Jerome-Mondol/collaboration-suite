@@ -23,7 +23,7 @@ export const signup = async (name, email, password) => {
         options: {
             data: { name }
         }
-        
+
     })
 
     if (error) {
@@ -32,13 +32,14 @@ export const signup = async (name, email, password) => {
     }
 
     toast.success("Successfully signed up")
+
 }
 
 export const passwordReset = async (email) => {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'http://localhost:5173/recover-password' 
+        redirectTo: 'http://localhost:5173/recover-password'
     });
-    if(error) {
+    if (error) {
         toast.error(error.message);
         return
     } else {

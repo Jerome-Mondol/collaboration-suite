@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import Login from "./components/AuthForms/Login";
-import Signup from "./components/AuthForms/Signup";
-import PassRecovery from "./components/AuthForms/PassRecovery";
-import ForgotPassword from "./components/AuthForms/ForgotPassword";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Login from "./Components/AuthForms/Login";
+import Signup from "./Components/AuthForms/Signup";
+import PassRecovery from "./Components/AuthForms/PassRecovery";
+import ForgotPassword from "./Components/AuthForms/ForgotPassword";
+import Dashboard from "./Components/Dashboard/Dashboard";
 import { AuthProvider } from "./Context/Auth/AuthContext";
-import PrivateRoute from "./components/AuthForms/PrivateRoute";
+import PrivateRoute from "./Components/AuthForms/PrivateRoute";
 
 const App = () => {
   return (
