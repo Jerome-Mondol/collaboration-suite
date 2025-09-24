@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import RightChat from './RightChat'
 import DirectMessage from './DirectMessage'
 
@@ -13,8 +13,10 @@ const Chat = () => {
         setUserEmail(email);
         setUserId(id);
         setUsername(username);
-        console.log(userEmail, userId, username)
     }
+    useEffect(() => {
+        console.log("Current DM user:", userEmail, userId, username);
+    }, [userEmail, userId, username]);
 
   return (
     <>

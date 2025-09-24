@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Sidebar from './Sidebar'
 import Navbar from './Navbar'
-import Chat from './Chat/Chat'
+import Chat from '../Chat/Chat'
 
 
 const Dashboard = () => {

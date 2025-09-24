@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../../Utils/supabaseClient';
-import { useAuth } from '../../Context/Auth/AuthContext';
+import { supabase } from '../../../Utils/supabaseClient';
+import { useAuth } from '../../../Context/Auth/AuthContext';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 

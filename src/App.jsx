@@ -5,7 +5,7 @@ import Login from "./Components/AuthForms/Login";
 import Signup from "./Components/AuthForms/Signup";
 import PassRecovery from "./Components/AuthForms/PassRecovery";
 import ForgotPassword from "./Components/AuthForms/ForgotPassword";
-import Dashboard from "./Components/Dashboard/Dashboard";
+import Dashboard from "./Components/Dashboard/Dasboard/Dashboard";
 import { AuthProvider } from "./Context/Auth/AuthContext";
 import PrivateRoute from "./Components/AuthForms/PrivateRoute";
 

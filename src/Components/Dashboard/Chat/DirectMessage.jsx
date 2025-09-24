@@ -9,9 +9,11 @@ import News from '../News/News';
 const DirectMessage = ({ name, id, email }) => {
   const [message, setMessage] = useState('');
   const [currentUser, setCurrentUser] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setMessage('');
+    
   } 
 
   useEffect(() => {
@@ -25,8 +27,6 @@ const DirectMessage = ({ name, id, email }) => {
     }
     getCurrentLoggedInUser();
   }, [])
-
-  
 
 
 
