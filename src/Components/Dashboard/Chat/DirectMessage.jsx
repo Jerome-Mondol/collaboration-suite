@@ -68,7 +68,7 @@ useEffect(() => {
     );
 
   // subscribe to channel (no await)
-  channel.subscribe();
+  channel.subscribe();``
 
   // cleanup when component unmounts or conversation changes
   return () => {

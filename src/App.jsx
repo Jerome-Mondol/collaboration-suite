@@ -1,3 +1,4 @@
+// App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -8,6 +9,7 @@ import ForgotPassword from "./Components/AuthForms/ForgotPassword";
 import Dashboard from "./Components/Dashboard/Dasboard/Dashboard";
 import { AuthProvider } from "./Context/Auth/AuthContext";
 import PrivateRoute from "./Components/AuthForms/PrivateRoute";
+import Document from "./Components/Dashboard/Docs/Docs";
 
 const App = () => {
   return (
@@ -26,6 +28,15 @@ const App = () => {
             element={
               <PrivateRoute>
                 <Dashboard />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/docs"
+            element={
+              <PrivateRoute>
+                <Document docId="default-doc-id" /> {/* fixed: always pass a docId */}
               </PrivateRoute>
             }
           />
