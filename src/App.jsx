@@ -10,6 +10,7 @@ import Dashboard from "./Components/Dashboard/Dasboard/Dashboard";
 import { AuthProvider } from "./Context/Auth/AuthContext";
 import PrivateRoute from "./Components/AuthForms/PrivateRoute";
 import Document from "./Components/Dashboard/Docs/Docs";
+import Whiteboard from "./Components/Dashboard/WhiteBoard/WhiteBoard";
 
 const App = () => {
   return (
@@ -37,6 +38,15 @@ const App = () => {
             element={
               <PrivateRoute>
                 <Document docId="default-doc-id" /> {/* fixed: always pass a docId */}
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/whiteboard/:id"
+            element={
+              <PrivateRoute>
+                <Whiteboard />
               </PrivateRoute>
             }
           />
