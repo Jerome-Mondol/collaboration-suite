@@ -4,12 +4,21 @@ import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import Chat from '../Chat/Chat';
 import Document from '../Docs/Docs';
+import Whiteboard from '../WhiteBoard/WhiteBoard';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const [navState, setNavState] = useState('default');
+  const navigate = useNavigate();
 
   const handleViewChange = (viewName) => {
     setNavState(viewName);
+    
+    // Navigate to specific whiteboard when selected
+    if (viewName.startsWith('whiteboard-')) {
+      const boardId = viewName.replace('whiteboard-', '');
+      navigate(`/whiteboard/${boardId}`);
+    }
   };
 
   const renderCenterContent = () => {
@@ -18,10 +27,14 @@ const Dashboard = () => {
       case 'chat':
         return <Chat />;
       case 'video':
-        return <div>Video Placeholder</div>; // replace with Video component later
+        return <div>Video Placeholder</div>;
       case 'docs':
-        return <Document docId="default-doc-id" />; // default doc for testing
+        return <Document docId="default-doc-id" />;
       default:
+        if (navState.startsWith('whiteboard-')) {
+          const boardId = navState.replace('whiteboard-', '');
+          return <Whiteboard boardId={boardId} />;
+        }
         return <Chat />;
     }
   };
@@ -30,7 +43,7 @@ const Dashboard = () => {
     <div className="main h-screen w-screen overflow-x-hidden">
       <Navbar />
       <div className="grid grid-cols-12 h-full">
-        <Sidebar />
+        <Sidebar onViewChange={handleViewChange} />
         {renderCenterContent()}
       </div>
     </div>
